@@ -28,13 +28,13 @@ from .ffmpeg import encode, extract_subs
 from .uploads import upload_worker
 
 output = InlineKeyboardMarkup([
-    [InlineKeyboardButton("NETWORK", url="https://t.me/PokeTide"),
-     InlineKeyboardButton("OUR CHANNELS", url="https://t.me/PokeTide/74")]
+    [InlineKeyboardButton("Channel", url="https://t.me/ToonEncodes/"),
+     InlineKeyboardButton("Developer", url="https://t.me/TE_Mohanish")]
 ])
 
 start_but = InlineKeyboardMarkup([
     [InlineKeyboardButton("Stats", callback_data="stats"), InlineKeyboardButton("Settings", callback_data="OpenSettings")],
-    [InlineKeyboardButton("NETWORK", url="https://t.me/PokeTide/"), InlineKeyboardButton("OUR CHANNELS", url="https://t.me/PokeTide/74")]])
+    [InlineKeyboardButton("Channel", url="https://t.me/ToonEncodes/"), InlineKeyboardButton("Developer", url="https://t.me/TE_Mohanish")]])
 
 
 async def check_chat(message, chat):
