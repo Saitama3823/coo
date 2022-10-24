@@ -187,7 +187,7 @@ async def encode(filepath, message, msg):
     # Metadata Watermark
     m = await db.get_metadata_w(message.from_user.id)
     if m:
-        metadata = '-metadata title=@PokeTide -metadata:s:v title=@PokeTide -metadata:s:a title=@PokeTide '
+        metadata = '-metadata title=Encoded by Toon Encodes -metadata:s:v title=@ToonEncodes -metadata:s:a title=Toon.Encodes '
     else:
         metadata = ''
 
