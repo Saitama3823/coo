@@ -34,7 +34,7 @@ api_id = 8440502
 api_hash = "e77474ae3075f4000d3418c5a5a3a112"
 bot_token = "5521953154:AAE8bGrsNS9bfi2gt5MAWzxWRpj2TZQDA38"
 
-database = "mongodb+srv://Venkat3823:IP6ZKL4cGaaf52ME@userage.jourx.mongodb.net/cluster0?retryWrites=true&w=majority"
+database = "mongodb+srv://dkbotzon:dkbotzon@cluster0.q9dkemw.mongodb.net/?retryWrites=true&w=majority"
 session = "encoderbot"
 
 drive_dir = os.environ.get("DRIVE_DIR")
