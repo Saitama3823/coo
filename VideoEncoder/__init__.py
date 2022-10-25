@@ -30,12 +30,12 @@ if os.path.exists('VideoEncoder/config.env'):
 
 # Variables
 
-api_id = int(os.environ.get("API_ID"))
-api_hash = os.environ.get("API_HASH")
-bot_token = os.environ.get("BOT_TOKEN")
+api_id = 8440502
+api_hash = "e77474ae3075f4000d3418c5a5a3a112"
+bot_token = "5521953154:AAE8bGrsNS9bfi2gt5MAWzxWRpj2TZQDA38"
 
-database = os.environ.get("MONGO_URI")
-session = os.environ.get("SESSION_NAME")
+database = "mongodb+srv://Venkat3823:IP6ZKL4cGaaf52ME@userage.jourx.mongodb.net/cluster0?retryWrites=true&w=majority"
+session = "encoderbot"
 
 drive_dir = os.environ.get("DRIVE_DIR")
 index = os.environ.get("INDEX_URL")
@@ -43,13 +43,13 @@ index = os.environ.get("INDEX_URL")
 download_dir = os.environ.get("DOWNLOAD_DIR")
 encode_dir = os.environ.get("ENCODE_DIR")
 
-owner = list(set(int(x) for x in os.environ.get("OWNER_ID").split()))
-sudo_users = list(set(int(x) for x in os.environ.get("SUDO_USERS").split()))
-everyone = list(set(int(x) for x in os.environ.get("EVERYONE_CHATS").split()))
+owner = 1315975369
+sudo_users = 1204016562
+everyone = -841051733
 all = everyone + sudo_users + owner
 
 try:
-    log = int(os.environ.get("LOG_CHANNEL"))
+    log = -1001895876872
 except:
     log = owner
     print('Fill log or give user/channel/group id atleast!')
