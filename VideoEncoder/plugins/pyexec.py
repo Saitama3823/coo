@@ -30,9 +30,7 @@ from ..utils.helper import check_chat
 
 @Client.on_message(filters.command('exec'))
 async def run_code(client, message):
-    c = await check_chat(message, chat='Sudo')
-    if c is None:
-        return
+
 
     class UniqueExecReturnIdentifier:
         pass
@@ -106,9 +104,7 @@ async def run_code(client, message):
 
 @Client.on_message(filters.command('sh'))
 async def run_shell(client, message):
-    c = await check_chat(message, chat='Sudo')
-    if c is None:
-        return
+
     command = message.text.split(None, 1)[1]
     if not command:
         await message.reply_text('code 100')
