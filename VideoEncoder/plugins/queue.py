@@ -85,9 +85,7 @@ async def queue_answer(app, callback_query):
 
 @Client.on_message(filters.command(['queue']))
 async def queue_message(app, message):
-    c = await check_chat(message, chat='Both')
-    if not c:
-        return
+
     await AddUserToDatabase(app, message)
     msg = await message.reply_text("Wait Checking...")
     size = len(data)
@@ -104,9 +102,7 @@ async def queue_message(app, message):
 
 @Client.on_message(filters.command('clear'))
 async def clear(app, message):
-    c = await check_chat(message, chat='Sudo')
-    if not c:
-        return
+
     await AddUserToDatabase(app, message)
     if len(data) >= 1:
         current = data[0]
