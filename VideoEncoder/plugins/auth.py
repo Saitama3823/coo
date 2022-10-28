@@ -23,9 +23,7 @@ from ..utils.helper import check_chat, output
 
 @Client.on_message(filters.command('addchat'))
 async def addchat(client, message):
-    c = await check_chat(message, chat='Owner')
-    if not c:
-        return
+
     user_id = get_id(message)
     auth = await db.get_chat()
     if user_id in everyone:
@@ -42,9 +40,7 @@ async def addchat(client, message):
 
 @Client.on_message(filters.command('addsudo'))
 async def addsudo(client, message):
-    c = await check_chat(message, chat='Owner')
-    if not c:
-        return
+
     user_id = get_id(message)
     auth = await db.get_sudo()
     if user_id in sudo_users:
@@ -61,9 +57,7 @@ async def addsudo(client, message):
 
 @Client.on_message(filters.command('rmchat'))
 async def rmchat(client, message):
-    c = await check_chat(message, chat='Owner')
-    if not c:
-        return
+
     user_id = get_id(message)
     check = await db.get_chat()
     if str(user_id) in check:
@@ -81,9 +75,7 @@ async def rmchat(client, message):
 
 @Client.on_message(filters.command('rmsudo'))
 async def rmsudo(client, message):
-    c = await check_chat(message, chat='Owner')
-    if not c:
-        return
+
     user_id = get_id(message)
     check = await db.get_sudo()
     if str(user_id) in check:
