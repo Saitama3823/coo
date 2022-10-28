@@ -26,9 +26,7 @@ from ..utils.tasks import handle_tasks
 
 @Client.on_message(filters.incoming & (filters.video | filters.document))
 async def encode_video(app, message):
-    c = await check_chat(message, chat='Both')
-    if not c:
-        return
+
     await AddUserToDatabase(app, message)
     if message.document:
         if not message.document.mime_type in video_mimetype:
@@ -43,9 +41,7 @@ async def encode_video(app, message):
 
 @Client.on_message(filters.command('ddl'))
 async def url_encode(app, message):
-    c = await check_chat(message, chat='Both')
-    if not c:
-        return
+
     await AddUserToDatabase(app, message)
     data.append(message)
     if len(message.text.split()) == 1:
@@ -61,9 +57,7 @@ async def url_encode(app, message):
 
 @Client.on_message(filters.command('batch'))
 async def batch_encode(app, message):
-    c = await check_chat(message, chat='Both')
-    if not c:
-        return
+
     await AddUserToDatabase(app, message)
     data.append(message)
     if len(message.text.split()) == 1:
