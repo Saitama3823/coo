@@ -43,9 +43,7 @@ def uptime():
 
 @Client.on_message(filters.command('start'))
 async def start_message(app, message):
-    c = await check_chat(message, chat='Both')
-    if not c:
-        return
+
     await AddUserToDatabase(app, message)
     text = f"Hi {message.from_user.mention()}<a href='https://telegra.ph/file/11379aba315ba245ebc7b.jpg'>!</a> I'm VideoEncoder Bot which will do magic with your file."
     await message.reply(text=text, reply_markup=start_but)
@@ -53,9 +51,7 @@ async def start_message(app, message):
 
 @Client.on_message(filters.command('help'))
 async def help_message(app, message):
-    c = await check_chat(message, chat='Both')
-    if not c:
-        return
+
     await AddUserToDatabase(app, message)
     msg = """<b>📕 Commands List</b>:
 
@@ -90,9 +86,7 @@ Supports: <a href='https://telegra.ph/Supports-03-29'>click here</a>"""
 
 @Client.on_message(filters.command('stats'))
 async def show_status_count(_, event: Message):
-    c = await check_chat(event, chat='Both')
-    if not c:
-        return
+
     await AddUserToDatabase(_, event)
     text = await show_status(_)
     await event.reply_text(text)
@@ -166,9 +160,7 @@ Users: {total_users}"""
 
 @Client.on_message(filters.command('clean'))
 async def delete_files(_, message):
-    c = await check_chat(message, chat='Sudo')
-    if not c:
-        return
+
     delete_downloads()
     await message.reply_text('Deleted all junk files!')
 
@@ -192,9 +184,7 @@ def delete_downloads():
 
 @Client.on_message(filters.command('restart'))
 async def font_message(app, message):
-    c = await check_chat(message, chat='Sudo')
-    if not c:
-        return
+
     await AddUserToDatabase(app, message)
     reply = await message.reply_text('Restarting...')
     textx = f"Done Restart...✅"
@@ -207,9 +197,7 @@ async def font_message(app, message):
 
 @Client.on_message(filters.command('update'))
 async def update_message(app, message):
-    c = await check_chat(message, chat='Sudo')
-    if not c:
-        return
+
     await AddUserToDatabase(app, message)
     reply = await message.reply_text('📶 Fetching Update...')
     textx = f"✅ Bot Updated"
