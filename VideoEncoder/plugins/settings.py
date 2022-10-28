@@ -26,9 +26,7 @@ from ..utils.settings import OpenSettings
 
 @Client.on_message(filters.command("reset"))
 async def reset(bot: Client, update: Message):
-    c = await check_chat(update, chat='Both')
-    if not c:
-        return
+
     await db.delete_user(update.from_user.id)
     await db.add_user(update.from_user.id)
     await update.reply(text="Settings reset successfully", reply_markup=output)
@@ -36,9 +34,7 @@ async def reset(bot: Client, update: Message):
 
 @Client.on_message(filters.command("settings"))
 async def settings_handler(bot: Client, event: Message):
-    c = await check_chat(event, chat='Both')
-    if not c:
-        return
+
     await AddUserToDatabase(bot, event)
     editable = await event.reply_text("Please Wait ...")
     await OpenSettings(editable, user_id=event.from_user.id)
@@ -46,9 +42,7 @@ async def settings_handler(bot: Client, event: Message):
 
 @Client.on_message(filters.command("vset"))
 async def settings_viewer(bot: Client, event: Message):
-    c = await check_chat(event, chat='Both')
-    if c is None:
-        return
+
     await AddUserToDatabase(bot, event)
     # User ID
     if event.reply_to_message:
