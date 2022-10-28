@@ -30,9 +30,7 @@ from ..utils.uploads.telegram import upload_doc, upload_video
 
 @Client.on_message(filters.command('dupload'))
 async def docupload(client, message):
-    c = await check_chat(message, chat='Sudo')
-    if not c:
-        return
+
     c_time = time.time()
     file = os.path.expanduser(' '.join(message.command[1:]))
     if not file:
@@ -52,9 +50,7 @@ async def docupload(client, message):
 
 @Client.on_message(filters.command('vupload'))
 async def videoupload(client, message):
-    c = await check_chat(message, chat='Sudo')
-    if c is None:
-        return
+
     c_time = time.time()
     file = os.path.expanduser(' '.join(message.command[1:]))
     if not file:
@@ -77,9 +73,7 @@ async def videoupload(client, message):
 
 @Client.on_message(filters.command('gupload'))
 async def driveupload(client, message):
-    c = await check_chat(message, chat='Sudo')
-    if c is None:
-        return
+
     new_file = os.path.expanduser(' '.join(message.command[1:]))
     if not new_file:
         await message.reply_text('you forgot to mention path!')
@@ -97,9 +91,7 @@ async def driveupload(client, message):
 
 @Client.on_message(filters.command('logs'))
 async def logsup(client, message):
-    c = await check_chat(message, chat='Sudo')
-    if c is None:
-        return
+
     file = 'VideoEncoder/utils/extras/logs.txt'
     caption = '#Logs'
     try:
